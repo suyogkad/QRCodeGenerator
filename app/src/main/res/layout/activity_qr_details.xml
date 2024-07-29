@@ -1,0 +1,88 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@color/backgroundColor">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Enter URL"
+        android:textSize="18sp"
+        android:textColor="@color/textColor"
+        android:layout_marginBottom="8dp"/>
+
+    <EditText
+        android:id="@+id/editTextURL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="https://example.com"
+        android:textColor="@color/textColor"
+        android:background="@drawable/edit_text_background"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Enter QR Name (Optional)"
+        android:textSize="18sp"
+        android:textColor="@color/textColor"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"/>
+
+    <EditText
+        android:id="@+id/editTextQRName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="My QR Code"
+        android:textColor="@color/textColor"
+        android:background="@drawable/edit_text_background"/>
+
+    <Button
+        android:id="@+id/buttonGenerateQR"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Generate your QR"
+        android:backgroundTint="@color/accentColor"
+        android:textColor="@android:color/white"
+        android:layout_marginTop="24dp"
+        android:layout_gravity="center"/>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone"/>
+
+    <ImageView
+        android:id="@+id/imageViewQRCode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:visibility="gone"
+        android:contentDescription="@string/qrcode_image"/>
+
+    <Button
+        android:id="@+id/buttonSave"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Save to Gallery"
+        android:backgroundTint="@color/accentColor"
+        android:textColor="@android:color/white"
+        android:layout_marginTop="16dp"
+        android:visibility="gone"
+        android:layout_gravity="center"/>
+
+    <Button
+        android:id="@+id/buttonShare"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Share"
+        android:backgroundTint="@color/accentColor"
+        android:textColor="@android:color/white"
+        android:layout_marginTop="16dp"
+        android:visibility="gone"
+        android:layout_gravity="center"/>
+</LinearLayout>

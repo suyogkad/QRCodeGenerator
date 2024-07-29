@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">QRGenerator</string>
+    <string name="qrcode_image">QR Code Image</string>
+    <!-- Add other string resources here -->
+</resources>
