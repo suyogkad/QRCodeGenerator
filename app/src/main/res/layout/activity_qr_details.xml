@@ -4,40 +4,24 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    android:background="@color/backgroundColor">
+    android:background="@color/backgroundColor"
+    tools:context=".QRDetailsActivity">
 
     <TextView
+        android:id="@+id/qrTypeTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Enter URL"
-        android:textSize="18sp"
+        android:text="Create QR Code"
+        android:textSize="24sp"
         android:textColor="@color/textColor"
-        android:layout_marginBottom="8dp"/>
+        android:textStyle="bold"
+        android:layout_marginBottom="16dp"/>
 
-    <EditText
-        android:id="@+id/editTextURL"
+    <LinearLayout
+        android:id="@+id/qrSpecificFields"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="https://example.com"
-        android:textColor="@color/textColor"
-        android:background="@drawable/edit_text_background"/>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Enter QR Name (Optional)"
-        android:textSize="18sp"
-        android:textColor="@color/textColor"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="8dp"/>
-
-    <EditText
-        android:id="@+id/editTextQRName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="My QR Code"
-        android:textColor="@color/textColor"
-        android:background="@drawable/edit_text_background"/>
+        android:orientation="vertical"/>
 
     <Button
         android:id="@+id/buttonGenerateQR"

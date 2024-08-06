@@ -5,51 +5,58 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-// QRCodeTypeAdapter.java
-// QRCodeTypeAdapter.java
-public class QRCodeTypeAdapter extends RecyclerView.Adapter<QRCodeTypeAdapter.ViewHolder> {
+import java.util.List;
 
-    private String[] qrTypes;
-    private Context context;
+public class QRCodeTypeAdapter extends RecyclerView.Adapter<QRCodeTypeAdapter.QRTypeViewHolder> {
 
-    public QRCodeTypeAdapter(Context context, String[] qrTypes) {
+    private final List<QRCodeType> qrCodeTypes;
+    private final Context context;
+
+    public QRCodeTypeAdapter(List<QRCodeType> qrCodeTypes, Context context) {
+        this.qrCodeTypes = qrCodeTypes;
         this.context = context;
-        this.qrTypes = qrTypes;
     }
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.qr_type_item, parent, false);
-        return new ViewHolder(view);
+    public QRTypeViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(context).inflate(R.layout.qr_type_card, parent, false);
+        return new QRTypeViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.qrTypeTextView.setText(qrTypes[position]);
+    public void onBindViewHolder(@NonNull QRTypeViewHolder holder, int position) {
+        QRCodeType qrCodeType = qrCodeTypes.get(position);
+        holder.qrTypeName.setText(qrCodeType.getName());
+        holder.qrTypeIcon.setImageResource(qrCodeType.getIconResId());
+
         holder.itemView.setOnClickListener(v -> {
             Intent intent = new Intent(context, QRDetailsActivity.class);
-            intent.putExtra("QR_TYPE", qrTypes[position]);
+            intent.putExtra("QR_TYPE", qrCodeType.getName());
             context.startActivity(intent);
         });
     }
 
     @Override
     public int getItemCount() {
-        return qrTypes.length;
+        return qrCodeTypes.size();
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView qrTypeTextView;
+    public static class QRTypeViewHolder extends RecyclerView.ViewHolder {
+        ImageView qrTypeIcon;
+        TextView qrTypeName;
 
-        public ViewHolder(View itemView) {
+        public QRTypeViewHolder(@NonNull View itemView) {
             super(itemView);
-            qrTypeTextView = itemView.findViewById(R.id.qrTypeTextView);
+            qrTypeIcon = itemView.findViewById(R.id.qrTypeIcon);
+            qrTypeName = itemView.findViewById(R.id.qrTypeName);
         }
     }
 }

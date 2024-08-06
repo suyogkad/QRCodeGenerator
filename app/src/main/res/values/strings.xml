@@ -1,5 +1,24 @@
 <resources>
-    <string name="app_name">QRGenerator</string>
+    <string name="app_name">QR Generator</string>
+    <string name="home">Home</string>
+    <string name="saved">Saved</string>
+    <string name="settings">Settings</string>
+    <string name="url">URL</string>
+    <string name="text">Text</string>
+    <string name="email">Email</string>
+    <string name="phone">Phone</string>
+    <string name="sms">SMS</string>
+    <string name="vcard">VCard</string>
+    <string name="location">Location</string>
+    <string name="wifi">WiFi</string>
     <string name="qrcode_image">QR Code Image</string>
-    <!-- Add other string resources here -->
+    <string-array name="encryption_types">
+        <item>WEP</item>
+        <item>WPA/WPA2</item>
+        <item>None</item>
+    </string-array>
 </resources>
+
+
+
+
