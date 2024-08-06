@@ -51,21 +51,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 Fragment selectedFragment = null;
+                int itemId = item.getItemId();
 
-                // Switch case for handling bottom navigation item clicks
-                switch (item.getItemId()) {
-                    case R.id.nav_home:
-                        // HomeFragment is assumed to be your initial home screen fragment
-                        selectedFragment = new HomeFragment();
-                        break;
-                    case R.id.nav_saved:
-                        // SavedQRFragment handles saved QR codes
-                        selectedFragment = new SavedQRFragment();
-                        break;
-                    case R.id.nav_settings:
-                        // SettingsFragment handles app settings
-                        selectedFragment = new SettingsFragment();
-                        break;
+                if (itemId == R.id.nav_home) {
+                    selectedFragment = new HomeFragment(); // Initialize HomeFragment
+                } else if (itemId == R.id.nav_saved) {
+                    selectedFragment = new SavedQRFragment(); // Initialize SavedQRFragment
+                } else if (itemId == R.id.nav_settings) {
+                    selectedFragment = new SettingsFragment(); // Initialize SettingsFragment
                 }
 
                 // Replace current fragment with the selected one
